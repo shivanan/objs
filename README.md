@@ -1,2 +1,2 @@
 # objs
-An object storage system
+An object storage system in rust
