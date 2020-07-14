@@ -5,7 +5,6 @@ use clap::{Arg,ArgMatches};
 
 async fn create_request(m:Configuration,req:HttpRequest,bytes:web::Bytes) ->  impl Responder {
     let path = req.match_info().get("path").unwrap();
-    //let s = m;//Configuration{dbpath:String::from("/tmp/objdata"),peers:vec![]};
     match m.write_object(path,&bytes) {
         Ok(()) =>return HttpResponse::build(http::StatusCode::OK).body(""),
         Err(e) =>{
